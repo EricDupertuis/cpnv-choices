@@ -1,15 +1,22 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: eric
- * Date: 02.09.16
- * Time: 10:41
- */
 
 namespace Cpnv\ChoicesBundle\Db\Exception;
 
-
-class QueryBuilderException
+/**
+ * Class QueryBuilderException
+ * @package Cpnv\ChoicesBundle\Db\Exception
+ * @author Eric Dupertuis <dupertuis.eric@gmail.com>
+ */
+class QueryBuilderException extends \Exception
 {
-
+    /**
+     * QueryBuilderException constructor.
+     * @param string $message
+     * @param int $code
+     * @param \Exception|null $previous
+     */
+    public function __construct($message, $code = 0, \Exception $previous = null)
+    {
+        parent::__construct($message, $code, $previous);
+    }
 }

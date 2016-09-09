@@ -2,25 +2,47 @@
 
 namespace Cpnv\ChoicesBundle\Db;
 
+use Cpnv\ChoicesBundle\Db\Exception\QueryBuilderException;
+
+/**
+ * Class QueryBuilder
+ * @package Cpnv\ChoicesBundle\Db
+ * @author Eric Dupertuis <dupertuis.eric@gmail.com>
+ */
 class QueryBuilder
 {
-    private $pdo;
-
     private $query = '';
 
-    public function __construct(\PDO $pdo)
-    {
-        $this->pdo = $pdo;
-    }
+    const DESC = 'DESC';
 
+    const ASC = "ASC";
+
+    private $allowedOperators = [
+        '=',
+        '>',
+        '<',
+        '>=',
+        '<='
+    ];
+
+    /**
+     * @param $db
+     * @param array $fields
+     * @return QueryBuilder $this
+     */
     public function select($db, $fields = [])
     {
         $this->query = 'SELECT ';
-        foreach ($fields as $field) {
-            if ($field = count($fields) - 1) {
-                $this->query .= "$field, ";
-            } else {
-                $this->query .= $field;
+
+        if (count($fields) === 0) {
+            $this->query .= '*';
+        } else {
+            foreach ($fields as $field) {
+                if ($field = count($fields) - 1) {
+                    $this->query .= "$field, ";
+                } else {
+                    $this->query .= $field;
+                }
             }
         }
 
@@ -29,11 +51,90 @@ class QueryBuilder
         return $this;
     }
 
-    public function where($field, $value, $operator)
+    /**
+     * @param string $field
+     * @param string $operator
+     * @param mixed $value
+     * @return QueryBuilder $this
+     */
+    public function where($field, $operator, $value)
     {
-        
+        if ($this->validateOperator($operator)) {
+            $this->query .= " WHERE $field $operator " . $this->escape($value);
+        }
+
+        return $this;
     }
 
+    /**
+     * @param $field
+     * @param $operator
+     * @param $value
+     * @return QueryBuilder $this
+     */
+    public function andWhere($field, $operator, $value)
+    {
+        if ($this->validateOperator($operator)) {
+            $this->query .= " AND WHERE $field $operator " . $this->escape($value);
+        };
+
+        return $this;
+    }
+
+    /**
+     * @param $field
+     * @param string $order
+     * @return $this
+     */
+    public function orderBy($field, $order = 'ASC')
+    {
+        $this->query .= " ORDER BY $field ";
+        $this->query .= $order;
+
+        return $this;
+    }
+
+    /**
+     * @param $field
+     * @param string $order
+     * @return $this
+     */
+    public function andOrderBy($field, $order = 'ASC')
+    {
+        $this->query .= ", $field $order";
+        return $this;
+    }
+
+    /**
+     * @param $value
+     * @return string
+     */
+    private function escape($value)
+    {
+        if (gettype($value) === 'string') {
+            return "\"$value\"";
+        } else {
+            return $value;
+        }
+    }
+
+    /**
+     * @param $operator
+     * @return bool
+     * @throws QueryBuilderException
+     */
+    private function validateOperator($operator)
+    {
+        if (in_array($operator, $this->allowedOperators)) {
+            return true;
+        } else {
+            throw new QueryBuilderException('Operator is not recognised or allowed');
+        }
+    }
+
+    /**
+     * @return string
+     */
     public function getQuery()
     {
         return $this->query;

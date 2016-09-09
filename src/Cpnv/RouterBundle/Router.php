@@ -5,6 +5,7 @@ namespace Cpnv\RouterBundle;
 /**
  * Class Router
  * @package Cpnv\RouterBundle
+ * @author Eric Dupertuis <dupertuis.eric@gmail.com>
  */
 class Router
 {
@@ -43,7 +44,7 @@ class Router
     public function run()
     {
         if (!$this->routes[$this->method]) {
-            throw new \Exception(
+            throw new RouterException(
                 "Method : " . $this->method . "Does not exist",
                 1
             );
@@ -54,9 +55,7 @@ class Router
          */
         foreach ($this->routes[$this->method] as $route) {
             if ($route->match($this->url)) {
-
-                echo 'matching route';
-                //return $route->call();
+                return $route->call();
             }
         }
 

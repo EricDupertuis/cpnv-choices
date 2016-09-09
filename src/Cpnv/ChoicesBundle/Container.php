@@ -3,7 +3,13 @@
 namespace Cpnv\ChoicesBundle;
 
 use Cpnv\RouterBundle\Router;
+use Cpnv\ChoicesBundle\Db\DbConnection;
 
+/**
+ * Class Container
+ * @package Cpnv\ChoicesBundle
+ * @author Eric Dupertuis <dupertuis.eric@gmail.com>
+ */
 class Container
 {
     private $router;
@@ -14,12 +20,24 @@ class Container
 
     private $requestMethod;
 
+    private $dbConnection;
+
+    /**
+     * Container constructor.
+     * @param $config
+     */
     public function __construct($config)
     {
         $this->requestUri = $_SERVER['REQUEST_URI'];
         $this->requestMethod = $_SERVER['REQUEST_METHOD'];
         $this->router = new Router($this->requestUri);
         $this->routes = $config['routes'];
+        $this->dbConnection = new DbConnection(
+            $config['db']['host'],
+            $config['db']['dbName'],
+            $config['db']['user'],
+            $config['db']['password']
+        );
     }
 
     public function run()

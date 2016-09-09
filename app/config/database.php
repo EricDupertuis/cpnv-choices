@@ -1,7 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: eric
- * Date: 02.09.16
- * Time: 15:42
- */
+
+return [
+    'driver' => 'mysql',
+    'host' => 'localhost',
+    'dbName' => 'choices',
+    'user' => 'root',
+    'password' => 'root'
+];
