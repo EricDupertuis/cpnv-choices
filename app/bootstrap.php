@@ -1,9 +1,11 @@
 <?php
 
+use Cpnv\ChoicesBundle\Container;
+
 require_once('Autoloader.php');
 Autoloader::register();
 
-$app = new Cpnv\ChoicesBundle\Container(
+$app = new Container(
     [
         'config' => require_once('config/app.php'),
         'routes' => require_once('config/routing.php'),

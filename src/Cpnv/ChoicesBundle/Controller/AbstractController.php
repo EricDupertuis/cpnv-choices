@@ -1,15 +1,19 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: eric
- * Date: 09.09.16
- * Time: 15:28
- */
 
 namespace Cpnv\ChoicesBundle\Controller;
 
+use Cpnv\ChoicesBundle\Template\TemplateEngine;
+use Cpnv\ChoicesBundle\Container;
 
-class AbstractController
+/**
+ * Class AbstractController
+ * @package Cpnv\ChoicesBundle\Controller
+ * @author Eric Dupertuis <dupertuis.eric@gmail.com>
+ */
+abstract class AbstractController extends Container
 {
-
+    public function render($template, $vars)
+    {
+        TemplateEngine::render($template, $vars);
+    }
 }

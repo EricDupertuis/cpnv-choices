@@ -43,6 +43,7 @@ class Container
     public function run()
     {
         foreach ($this->routes as $name => $prefix) {
+            var_dump($prefix);var_dump($name);
             $this->router->get($prefix, function () use ($name) {
                 echo $name;
             });

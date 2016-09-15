@@ -1,7 +1,16 @@
 <?php
 
 return [
-    'home' => '/',
-    'about' => '/about',
-    'test' => '/test'
+    'home' => [
+        'prefix' => '/',
+        'controller' => 'HomeController'
+    ],
+    'about' => [
+        'prefix' => '/about',
+        'controller' => 'AboutController'
+    ],
+    'test' => [
+        'prefix' => '/test',
+        'controller' => 'TestController'
+    ]
 ];
