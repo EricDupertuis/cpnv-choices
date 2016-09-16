@@ -1,13 +1,18 @@
 FROM php:5.6-apache
- 
+
+MAINTAINER Eric Dupertuis <eric.dupertuis@generalmedia.com>
+
+RUN apt-get update
+RUN apt-get upgrade -y
+RUN apt-get install curl nano -y
+
 # Install PDO MySQL driver
 # See https://github.com/docker-library/php/issues/62
-RUN docker-php-ext-install pdo mysql
-RUN docker-php-ext-install pdo mysqli
- 
-# Workaround for write permission on write to MacOS X volumes
-# See https://github.com/boot2docker/boot2docker/pull/534
-RUN usermod -u 1000 www-data
- 
-# Enable Apache mod_rewrite
-RUN a2enmod rewrite
+RUN docker-php-ext-install pdo pdo_mysql
+
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+
+RUN rm -rf /var/lib/apt/lists/*
+
+# Apache & PHP configuration
+RUN a2enmod rewrite headers ssl deflate expires
