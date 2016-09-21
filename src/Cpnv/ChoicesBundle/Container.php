@@ -4,6 +4,7 @@ namespace Cpnv\ChoicesBundle;
 
 use Cpnv\RouterBundle\Router;
 use Cpnv\ChoicesBundle\Db\DbConnection;
+use Cpnv\ChoicesBundle\User\UserManager;
 
 /**
  * Class Container
@@ -22,6 +23,24 @@ class Container
 
     private $dbConnection;
 
+    private $user;
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
     /**
      * Container constructor.
      * @param $config
@@ -38,14 +57,16 @@ class Container
             $config['db']['user'],
             $config['db']['password']
         );
+
+        $this->user = new UserManager();
     }
 
     public function run()
     {
-        foreach ($this->routes as $name => $prefix) {
-            var_dump($prefix);var_dump($name);
-            $this->router->get($prefix, function () use ($name) {
-                echo $name;
+        foreach ($this->routes as $route => $conf) {
+            $this->router->get($conf['prefix'], function () use ($route, $conf) {
+                $controllerName = "Cpnv\\ChoicesBundle\\Controller\\".$conf['controller'];
+                $controller = new $controllerName;
             });
         }
 

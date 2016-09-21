@@ -2,7 +2,7 @@
 
 return [
     'driver' => 'mysql',
-    'host' => '127.0.0.1:3306',
+    'host' => '172.17.0.2',
     'dbName' => 'choices',
     'user' => 'root',
     'password' => 'root'
