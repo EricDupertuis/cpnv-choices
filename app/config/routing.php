@@ -2,15 +2,15 @@
 
 return [
     'home' => [
-        'prefix' => '/web',
+        'prefix' => '/',
         'controller' => 'HomeController'
     ],
     'about' => [
-        'prefix' => '/web/about',
+        'prefix' => '/about',
         'controller' => 'AboutController'
     ],
     'test' => [
-        'prefix' => '/web/test',
+        'prefix' => '/test',
         'controller' => 'TestController'
     ]
 ];

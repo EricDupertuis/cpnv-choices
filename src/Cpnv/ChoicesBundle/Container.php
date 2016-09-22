@@ -51,12 +51,12 @@ class Container
         $this->requestMethod = $_SERVER['REQUEST_METHOD'];
         $this->router = new Router($this->requestUri);
         $this->routes = $config['routes'];
-        $this->dbConnection = new DbConnection(
+        /*$this->dbConnection = new DbConnection(
             $config['db']['host'],
             $config['db']['dbName'],
             $config['db']['user'],
             $config['db']['password']
-        );
+        );*/
 
         $this->user = new UserManager();
     }
@@ -67,6 +67,7 @@ class Container
             $this->router->get($conf['prefix'], function () use ($route, $conf) {
                 $controllerName = "Cpnv\\ChoicesBundle\\Controller\\".$conf['controller'];
                 $controller = new $controllerName;
+                $controller->indexAction();
             });
         }
 

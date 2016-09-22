@@ -16,5 +16,6 @@ class HomeController extends AbstractController
     public function indexAction()
     {
         $query = new QueryBuilder();
+        var_dump('test');
     }
 }

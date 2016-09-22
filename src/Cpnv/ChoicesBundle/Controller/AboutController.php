@@ -1,15 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: eric
- * Date: 21.09.16
- * Time: 18:36
- */
 
 namespace Cpnv\ChoicesBundle\Controller;
 
+use Cpnv\ChoicesBundle\Interfaces\ControllerInterface;
 
-class AboutController
+class AboutController extends AbstractController implements ControllerInterface
 {
-
+    public function indexAction()
+    {
+        var_dump('test about page');
+    }
 }

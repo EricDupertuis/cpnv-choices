@@ -48,7 +48,6 @@ class Route
     {
         $url = trim($url, '/');
         $path = preg_replace('#:([\w]+)#', '([^/]+)', $this->path);
-var_dump($path);
         if (!preg_match('#^'.$path.'$#i', $url, $matches)) {
             return false;
         }
