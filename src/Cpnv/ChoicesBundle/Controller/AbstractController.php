@@ -14,7 +14,12 @@ abstract class AbstractController extends Container
 {
     public function render($template, $vars)
     {
-        TemplateEngine::render($template, $vars);
+        try {
+            TemplateEngine::render($template, $vars);
+
+        } catch (\Exception $e) {
+            echo 'Error rendering template :' . $template . ' ' . $e->getMessage();
+        }
     }
 
     public function redirect($path)
