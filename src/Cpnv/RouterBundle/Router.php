@@ -33,7 +33,11 @@ class Router
     public function get($path, $callable)
     {
         $route = new Route($path, $callable);
+        /**
+         * @TODO: implement allowed method for routes
+         */
         $this->routes['GET'][] = $route;
+        $this->routes['POST'][] = $route;
         return $route;
     }
 
