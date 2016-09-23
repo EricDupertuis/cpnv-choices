@@ -16,4 +16,9 @@ abstract class AbstractController extends Container
     {
         TemplateEngine::render($template, $vars);
     }
+
+    public function redirect($path)
+    {
+        header('Location: ' . $path);
+    }
 }
