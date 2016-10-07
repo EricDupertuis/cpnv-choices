@@ -23,7 +23,7 @@ class Container
 
     private $dbConnection;
 
-    private $user;
+    protected $user;
 
     /**
      * @return mixed
@@ -51,12 +51,12 @@ class Container
         $this->requestMethod = $_SERVER['REQUEST_METHOD'];
         $this->router = new Router($this->requestUri);
         $this->routes = $config['routes'];
-        /*$this->dbConnection = new DbConnection(
+        $this->dbConnection = new DbConnection(
             $config['db']['host'],
             $config['db']['dbName'],
             $config['db']['user'],
             $config['db']['password']
-        );*/
+        );
 
         $this->user = new UserManager();
     }
@@ -66,7 +66,7 @@ class Container
         foreach ($this->routes as $route => $conf) {
             $this->router->get($conf['prefix'], function () use ($route, $conf) {
                 $controllerName = "Cpnv\\ChoicesBundle\\Controller\\".$conf['controller'];
-                $controller = new $controllerName;
+                $controller = new $controllerName($this);
                 $controller->indexAction();
             });
         }
@@ -104,5 +104,10 @@ class Container
     public function setRoutes($routes)
     {
         $this->routes = $routes;
+    }
+
+    public function getDbConnection()
+    {
+        return $this->dbConnection;
     }
 }
