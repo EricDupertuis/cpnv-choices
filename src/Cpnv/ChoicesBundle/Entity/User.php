@@ -2,9 +2,6 @@
 
 namespace Cpnv\ChoicesBundle\Entity;
 
-use Cpnv\ChoicesBundle\Db\DbConnection;
-use Cpnv\ChoicesBundle\Db\QueryBuilder;
-
 /**
  * Class User
  * @package Cpnv\ChoicesBundle\Entity
@@ -21,21 +18,6 @@ class User
 
     private $isLogged = false;
 
-    public function registerUser($username, $password)
-    {
-
-    }
-
-    public function authenticateUser()
-    {
-
-    }
-
-    public function logoutUser()
-    {
-
-    }
-
     /**
      * @return mixed
      */
@@ -51,8 +33,6 @@ class User
     {
         $this->id = $id;
     }
-
-
 
     /**
      * @return mixed
@@ -102,5 +82,21 @@ class User
         $this->password = $password;
     }
 
-
+    /**
+     * @return string
+     */
+    public function up()
+    {
+        return
+        "
+            CREATE TABLE IF NOT EXISTS 'user' (
+              `id` int(11) NOT NULL AUTO_INCREMENT,
+              `username` varchar(30) NOT NULL,
+              `email` varchar(60) NOT NULL,
+              `password` varchar(255) NOT NULL,
+              PRIMARY KEY (`userId`),
+              UNIQUE KEY `userEmail` (`userEmail`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+        ";
+    }
 }

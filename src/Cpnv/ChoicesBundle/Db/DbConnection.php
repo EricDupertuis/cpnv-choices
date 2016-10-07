@@ -49,9 +49,7 @@ class DbConnection
      */
     public function connect($host, $dbName, $user, $password)
     {
-        $this->connection = new \PDO(
-            "mysql:host=".$host.";dbname=".$dbName.";port=3306;",$user,$password
-        );
+        $this->connection = new \PDO("mysql:host=$host;dbname=$dbName;charset=utf8", $user, $password);
     }
 
     /**

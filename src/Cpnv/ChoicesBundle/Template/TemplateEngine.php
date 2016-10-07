@@ -9,19 +9,23 @@ namespace Cpnv\ChoicesBundle\Template;
  */
 class TemplateEngine
 {
-    static public function render($template, $vars)
+    /**
+     * @param $template
+     * @param $vars
+     * @return string
+     */
+    public static function render($template, $vars)
     {
-        $output = file_get_contents('../src/Cpnv/ChoicesBundle/Resources/Views/'.$template);
+        $file = '../src/Cpnv/ChoicesBundle/Resources/Views/'.$template;
 
-        if (!$output) {
-            return "Error loading template file ($output).";
+        if (!file_exists($file)) {
+            return "Error loading template file ($file).";
         }
 
-        foreach ($vars as $key => $value) {
-            $tagToReplace = "[@$key]";
-            $output = str_replace($tagToReplace, $value, $output);
-        }
+        extract($vars);
 
-        echo $output;
+        include_once($file);
+
+        return true;
     }
 }
