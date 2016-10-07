@@ -26,11 +26,11 @@ class QueryBuilder
     ];
 
     /**
-     * @param $db
+     * @param $table
      * @param array $fields
      * @return QueryBuilder $this
      */
-    public function select($db, $fields = [])
+    public function select($table, $fields = [])
     {
         $this->query = 'SELECT ';
 
@@ -38,7 +38,7 @@ class QueryBuilder
             $this->query .= '*';
         } else {
             foreach ($fields as $field) {
-                if ($field = count($fields) - 1) {
+                if ($field == count($fields) - 1) {
                     $this->query .= "$field, ";
                 } else {
                     $this->query .= $field;
@@ -46,7 +46,7 @@ class QueryBuilder
             }
         }
 
-        $this->query .= " FROM $db";
+        $this->query .= " FROM $table";
 
         return $this;
     }
