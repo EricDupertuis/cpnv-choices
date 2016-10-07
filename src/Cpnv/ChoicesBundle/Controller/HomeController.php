@@ -4,7 +4,7 @@ namespace Cpnv\ChoicesBundle\Controller;
 
 use Cpnv\ChoicesBundle\Controller\AbstractController;
 use Cpnv\ChoicesBundle\Db\QueryBuilder;
-use Cpnv\ChoicesBundle\Db\DbConnection;
+use Cpnv\ChoicesBundle\Entity\User;
 
 /**
  * Class HomeController
@@ -16,6 +16,11 @@ class HomeController extends AbstractController
     public function indexAction()
     {
         $query = new QueryBuilder();
-        var_dump('test');
+        $db = $this->container->getDbConnection();
+
+        $query->select(User::class, '*')
+            ->where('name', '=', 'eric');
+
+        $db->execute($query->getQuery());
     }
 }
