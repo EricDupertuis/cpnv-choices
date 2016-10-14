@@ -58,7 +58,7 @@ class Container
             $config['db']['password']
         );
 
-        $this->user = new UserManager();
+        $this->user = new UserManager($_SESSION);
     }
 
     public function run()

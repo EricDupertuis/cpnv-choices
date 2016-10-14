@@ -2,8 +2,8 @@
 
 return [
     'driver' => 'mysql',
-    'host' => '52.57.153.211',
-    'dbName' => 'choices',
+    'host' => '172.17.0.2',
+    'dbName' => 'kingdom',
     'user' => 'root',
-    'password' => 'OmzMB9w77fSX6FdPUw6S'
+    'password' => 'root'
 ];

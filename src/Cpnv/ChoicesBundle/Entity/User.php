@@ -16,6 +16,8 @@ class User
 
     private $password;
 
+    private $hash;
+
     private $isLogged = false;
 
     /**

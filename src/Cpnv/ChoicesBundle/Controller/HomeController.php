@@ -15,12 +15,6 @@ class HomeController extends AbstractController
 {
     public function indexAction()
     {
-        $query = new QueryBuilder();
-        $db = $this->container->getDbConnection();
 
-        $query->select(User::class, '*')
-            ->where('name', '=', 'eric');
-
-        $db->execute($query->getQuery());
     }
 }
