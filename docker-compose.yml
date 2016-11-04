@@ -1,26 +1,13 @@
 site:
   build: .
-  ports :
-   - "80:80"
-  volumes:
-   - ./:/var/www/html/
-  links:
-   - database
-phpmyadmin:
-   image: corbinu/docker-phpmyadmin
-   ports :
-    - "8080:80"
-   environment:
-    - MYSQL_USERNAME=root
-    - MYSQL_PASSWORD=root
-   links:
-    - database:mysql
-database:
-  image: mysql:5.5
   ports:
-   - "3306:3306"
+    - "80:80"
+  volumes:
+    - /home/user/eric/Projects/Webrobot:/var/www/html/
+mysql:
+  image: mysql:5.6.26
   environment:
-     - MYSQL_ROOT_PASSWORD=root
-     - MYSQL_DATABASE=choices
-     - MYSQL_USER=choices
-     - MYSQL_PASSWORD=choices
+   - MYSQL_ROOT_PASSWORD=root
+   - MYSQL_DATABASE=root
+  ports:
+    - "3306:3306"
