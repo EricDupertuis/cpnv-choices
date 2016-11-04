@@ -1,0 +1,295 @@
+html {
+	height: 100%;
+}
+
+body {
+	height:100%;
+    position: relative;
+	font-family: Helvetica, Arial, "Liberation Sans", FreeSans, sans-serif !important;
+	background-color: #cf9f42 !important;
+	background: url(images/texture.png) repeat left;
+}
+
+.h1,
+h1 {
+	font-weight: 100 !important;
+	font-family: Helvetica, Arial, "Liberation Sans", FreeSans, sans-serif !important;
+	text-align: center;
+	margin: 20px 0 !important;
+}	
+
+p {
+	color: #ffffff;
+}
+
+.wrap {
+	min-height: 100%;
+    position: relative;
+}
+
+
+
+/*-----------------------------------------------------*/
+/*-----------------------------------------------------*/
+/*------------------------HEADER-----------------------*/
+/*-----------------------------------------------------*/
+/*-----------------------------------------------------*/
+
+header {
+	position: relative;
+	background-color: #222222;
+	background-image: -moz-linear-gradient(#333333, #222222);
+	background-image: -webkit-linear-gradient(#333333, #222222);
+	background-image: -o-linear-gradient(#333333, #222222);
+	background-image: linear-gradient(#333333, #222222);
+	
+}
+
+#logo {
+	max-width: 345px;
+	height: 87px;
+	margin: 41px 0 41px 20px;
+}
+
+.log-logo #logo {
+	margin: 30px auto;
+	width: 100%;
+	height: auto;
+}
+
+.nav li .menu {
+	color: #999999;
+	text-transform: uppercase;
+	float: right;
+	margin: 62.5px 0;
+}
+
+.nav li:first-child {
+	margin-right: 60px;
+}
+
+.nav li .menu:hover {
+	color: #ffffff;
+	background-color: #cf9f42;
+}
+
+#line-menu {
+	height: 2px;
+	width: 325px;
+	background-color: #999999;
+	position: absolute;
+    top: 103px;
+    right: 0;
+}
+
+/*-----------------------------------------------------*/
+/*-----------------------------------------------------*/
+/*---------------------END-HEADER----------------------*/
+/*-----------------------------------------------------*/
+/*-----------------------------------------------------*/
+
+
+
+/*-----------------------------------------------------*/
+/*-----------------------------------------------------*/
+/*------------------------BODY-------------------------*/
+/*-----------------------------------------------------*/
+/*-----------------------------------------------------*/
+
+.main {
+  	position: relative;
+  	padding-bottom: 20px;
+}
+
+.main p {
+	text-align: center;
+	text-transform: uppercase;
+	margin: 30px;
+	font-weight: bolder;
+	font-size: 40px;
+}
+
+.center {
+    width: 100%;
+    display: table;
+}
+
+.solution {
+	display: table;
+	min-height: 300px;
+	width: 100%;
+	max-width: 600px;
+	border-radius: 5px;
+}
+
+.solution:hover {
+	opacity: 0.9;
+}
+
+.left {
+	background-color: #f22613;
+	background-image: -moz-linear-gradient(#f22613, #cf000f);
+	background-image: -webkit-linear-gradient(#f22613, #cf000f);
+	background-image: -o-linear-gradient(#f22613, #cf000f);
+	background-image: linear-gradient(#f22613, #cf000f);
+	margin: 0 0 0 auto;
+}
+
+.right {
+	background-color: #1e8bc3;
+	background-image: -moz-linear-gradient(#19b5fe, #1e8bc3);
+	background-image: -webkit-linear-gradient(#19b5fe, #1e8bc3);
+	background-image: -o-linear-gradient(#19b5fe, #1e8bc3);
+	background-image: linear-gradient(#19b5fe, #1e8bc3);
+	margin: 0 auto 0 0;
+}
+
+.solution a,
+.solution a:hover,
+.solution a:focus  {
+	display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 100;
+}
+
+.or {
+	display: table;
+	position: relative;
+    top: -200px;
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    border: 2px solid #666666;
+    border-radius: 100%;
+    background-color: #222222;
+    background: -webkit-radial-gradient( center, circle, #444444, #222222);
+	background:    -moz-radial-gradient( center, circle, #444444, #222222);
+	background:     -ms-radial-gradient( center, circle, #444444, #222222);
+	background:      -o-radial-gradient( center, circle, #444444, #222222);
+	background:         radial-gradient( circle at center, #444444, #222222);
+}
+
+.or p {
+	font-weight: bolder;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 30px;
+	padding-top: 5px;
+}
+
+.log {
+	margin: 0 auto;
+	max-width: 400px;
+	background-color: #ffffff;
+	padding: 20px;
+	border-radius: 5px;
+}
+
+input {
+	width: 100%;
+	border-radius: 5px;
+	border: 1px solid #eeeeee;
+	padding: 10px;
+	margin: 5px 0 !important;
+	text-transform: uppercase;
+}
+
+input[type="submit"] {
+	background-color: #222222;
+	color: #ffffff;
+	border: none;
+}
+input[type="submit"]:hover {
+	background-color: #cf9f42 !important;
+}
+
+/*-----------------------------------------------------*/
+/*-----------------------------------------------------*/
+/*----------------------END-BODY-----------------------*/
+/*-----------------------------------------------------*/
+/*-----------------------------------------------------*/
+
+
+
+/*-----------------------------------------------------*/
+/*-----------------------------------------------------*/
+/*-----------------------FOOTER------------------------*/
+/*-----------------------------------------------------*/
+/*-----------------------------------------------------*/
+
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	background-color: #222222;
+	padding: 20px 0 10px 0;
+	text-align: center;
+}
+
+footer p {
+	color: #666666;
+}
+
+/*-----------------------------------------------------*/
+/*-----------------------------------------------------*/
+/*---------------------END-FOOTER----------------------*/
+/*-----------------------------------------------------*/
+/*-----------------------------------------------------*/
+
+
+
+
+@media (max-width: 767px) {
+	
+	#logo {
+		margin: 41px auto;
+    	display: table-cell;
+	}
+
+	.nav li .menu {
+    	margin: 0 0 50px 0;
+	}
+
+	#line-menu {
+		top: 40px;
+	}
+
+	.left {
+		margin: 0 auto 15px auto;
+	}
+
+	.right {
+		margin: 15px auto 0 auto;
+	}
+
+	.or {
+		top: -365px;
+	}
+}
+
+@media (max-width: 374px) {
+	
+	#logo {
+		width: 100%;
+		height: auto;
+	}
+
+	.nav li:first-child {
+		margin-right: 0px;
+	}
+
+	#line-menu {
+		width: 265px;
+	}
+}
+
+/*-----------------------------------------------------*/
+/*-----------------------------------------------------*/
+/*---------------------END-FOOTER----------------------*/
+/*-----------------------------------------------------*/
+/*-----------------------------------------------------*/
