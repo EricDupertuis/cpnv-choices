@@ -1,5 +1,6 @@
 <?php
 
 return [
-  'test' => 'test'
+    'env' => 'dev',
+    'app_dir' => $_SERVER['DOCUMENT_ROOT'].'/../app/'
 ];

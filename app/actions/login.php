@@ -1,7 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: eric
- * Date: 04.11.16
- * Time: 15:00
- */
+
+var_dump($_POST);
+
+require_once $config['app']['app_dir'].'pages/login.php';

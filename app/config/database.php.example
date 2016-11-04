@@ -1,0 +1,9 @@
+<?php
+
+return [
+    'driver' => 'mysql',
+    'host' => 'localhost',
+    'dbName' => 'db',
+    'user' => 'root',
+    'password' => 'root'
+];
