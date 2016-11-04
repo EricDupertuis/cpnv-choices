@@ -1,20 +1,13 @@
 <?php
 
-use Cpnv\ChoicesBundle\Container;
+$config = [];
 
-require_once('Autoloader.php');
-Autoloader::register();
+$config['app'] = require_once('config/app.php');
+$config['routes'] = require_once('config/routing.php');
+$config['db'] = require_once('config/database.php');
 
-$app = new Container(
-    [
-        'config' => require_once('config/app.php'),
-        'routes' => require_once('config/routing.php'),
-        'db'     => require_once('config/database.php')
-    ]
-);
-
-try {
-    $app->run();
-} catch (\Cpnv\RouterBundle\RouterException $e) {
-    echo $e->getMessage();
+foreach ($config['routes'] as $route) {
+    if ($_SERVER['REQUEST_URI'] === $route['prefix']) {
+        include_once('actions/'.$route['action'].'.php');
+    }
 }
