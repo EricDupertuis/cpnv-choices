@@ -8,19 +8,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema kingdom
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema kingdom
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `kingdom` DEFAULT CHARACTER SET utf8 ;
+USE `kingdom` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`users`
+-- Table `kingdom`.`users`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`users` (
+CREATE TABLE IF NOT EXISTS `kingdom`.`users` (
   `id` INT NOT NULL,
   `username` VARCHAR(255) NOT NULL,
   `email` VARCHAR(255) NOT NULL,
@@ -32,17 +32,17 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`questions`
+-- Table `kingdom`.`questions`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`questions` (
-  `id` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `kingdom`.`questions` (
+  'id' INT(11) NOT NULL AUTO_INCREMENT;
   `texte` VARCHAR(255) NOT NULL,
   `users_id` INT NOT NULL,
   PRIMARY KEY (`id`, `users_id`),
   INDEX `fk_questions_users1_idx` (`users_id` ASC),
   CONSTRAINT `fk_questions_users1`
     FOREIGN KEY (`users_id`)
-    REFERENCES `mydb`.`users` (`id`)
+    REFERENCES `kingdom`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -50,9 +50,9 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`answers`
+-- Table `kingdom`.`answers`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`answers` (
+CREATE TABLE IF NOT EXISTS `kingdom`.`answers` (
   `id` INT NOT NULL,
   `answer_one` VARCHAR(255) NOT NULL,
   `answer_two` VARCHAR(255) NOT NULL,
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`answers` (
   INDEX `fk_answers_questions_idx` (`questions_id` ASC),
   CONSTRAINT `fk_answers_questions`
     FOREIGN KEY (`questions_id`)
-    REFERENCES `mydb`.`questions` (`id`)
+    REFERENCES `kingdom`.`questions` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -69,9 +69,9 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`users_has_answers`
+-- Table `kingdom`.`users_has_answers`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`users_has_answers` (
+CREATE TABLE IF NOT EXISTS `kingdom`.`users_has_answers` (
   `users_id` INT NOT NULL,
   `answers_id` INT NOT NULL,
   `answers_questions_id` INT NOT NULL,
@@ -80,12 +80,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`users_has_answers` (
   INDEX `fk_users_has_answers_users1_idx` (`users_id` ASC),
   CONSTRAINT `fk_users_has_answers_users1`
     FOREIGN KEY (`users_id`)
-    REFERENCES `mydb`.`users` (`id`)
+    REFERENCES `kingdom`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_users_has_answers_answers1`
     FOREIGN KEY (`answers_id` , `answers_questions_id`)
-    REFERENCES `mydb`.`answers` (`id` , `questions_id`)
+    REFERENCES `kingdom`.`answers` (`id` , `questions_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB

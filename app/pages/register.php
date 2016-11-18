@@ -1,18 +1,16 @@
-<!DOCTYPE html>
-<html>
-    <?php include_once 'incs/head.php'?>
-<body>
+<?php include_once 'incs/head.php'?>
 <form method="post" action="<?php echo $_SERVER['REQUEST_URI'] ?>">
-    <label for="username">Username</label>
-    <input type="text" id="username" name="username">
+    <div class="container">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username">
 
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
 
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password">
 
-    <input type="submit" value="submit">
+        <input type="submit" value="submit">
+    </div>
 </form>
-</body>
-</html>
+<?php include_once 'incs/footer.php'; ?>

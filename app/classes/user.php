@@ -78,7 +78,7 @@ class User
         $query->bindParam('email', $email);
         $query->bindParam('salt', $salt);
 
-        $query->execute();
+        return $query->execute();
     }
 
     public function checkPermissions()
