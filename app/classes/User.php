@@ -19,6 +19,8 @@ class User
 
     private $password;
 
+    private $salt;
+
     /**
      * @var \PDO $db
      */
@@ -40,7 +42,7 @@ class User
      */
     public function connect($username, $password)
     {
-        $stmt = $this->db->prepare('SELECT * users WHERE username=:username');
+        $stmt = $this->db->prepare('SELECT * FROM users WHERE username=:username');
         $stmt->bindParam(':username', $username);
 
         $stmt->execute();
@@ -50,9 +52,10 @@ class User
             return false;
         }
 
+        var_dump(password_verify($password, $user['password']), $user, $password);
         if (password_verify($password, $user['password'])) {
             $_SESSION['user'] = $user['username'];
-            $_SESSION['password'] = $user['password'];
+            $_SESSION['logged'] = true;
 
             return true;
         } else {
@@ -65,19 +68,17 @@ class User
      */
     public function register($username, $email, $passwd)
     {
-        $salt = mcrypt_create_iv(22, MCRYPT_DEV_URANDOM);
-        $options = ['salt' => $salt];
-        $password = password_hash($passwd, PASSWORD_DEFAULT, $options);
+        $salt = uniqid(mt_rand(), true);
+        $password = password_hash($passwd, PASSWORD_DEFAULT);
 
         $query = $this->db->prepare('
-          INSERT INTO users (username, email, password, salt) 
-          VALUES (:username, :email, :password, :salt)
+          INSERT INTO users (username, email, password) 
+          VALUES (:username, :email, :password)
         ');
 
         $query->bindParam('username', $username);
         $query->bindParam('password', $password);
         $query->bindParam('email', $email);
-        $query->bindParam('salt', $salt);
 
         if ($query->execute()) {
             $_SESSION['username'] = $username;
