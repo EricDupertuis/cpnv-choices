@@ -52,7 +52,6 @@ class User
             return false;
         }
 
-        var_dump(password_verify($password, $user['password']), $user, $password);
         if (password_verify($password, $user['password'])) {
             $_SESSION['user'] = $user['username'];
             $_SESSION['logged'] = true;
