@@ -81,7 +81,7 @@ class User
 
         if ($query->execute()) {
             $_SESSION['username'] = $username;
-            $_SESSION['email'] = $email;
+            $_SESSION['logged'] = true;
 
             return true;
         } else {

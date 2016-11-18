@@ -6,7 +6,7 @@ $config = [];
 $config['app'] = require_once('config/app.php');
 $config['routes'] = require_once('config/routing.php');
 $config['db'] = require_once('config/database.php');
-include_once '../app/classes/user.php';
+include_once '../app/classes/User.php';
 
 session_start();
 
