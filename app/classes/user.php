@@ -73,12 +73,20 @@ class User
           INSERT INTO users (username, email, password, salt) 
           VALUES (:username, :email, :password, :salt)
         ');
+
         $query->bindParam('username', $username);
         $query->bindParam('password', $password);
         $query->bindParam('email', $email);
         $query->bindParam('salt', $salt);
 
-        return $query->execute();
+        if ($query->execute()) {
+            $_SESSION['username'] = $username;
+            $_SESSION['email'] = $email;
+
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public function checkPermissions()
