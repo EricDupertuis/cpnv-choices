@@ -63,21 +63,48 @@ class User
     /**
      * @param array $data
      */
-    public function register($data)
+    public function register($username, $email, $passwd)
     {
-        $stmt = $this->db->prepare('
-            INSERT INTO \'user\' (username, email, password, permissions)
-            VALUES (:username, :email, :password, :permissions)
+        $salt = mcrypt_create_iv(22, MCRYPT_DEV_URANDOM);
+        $options = ['salt' => $salt];
+        $password = password_hash($passwd, PASSWORD_DEFAULT, $options);
+
+        $query = $this->db->prepare('
+          INSERT INTO users (username, email, password, salt) 
+          VALUES (:username, :email, :password, :salt)
         ');
+        $query->bindParam('username', $username);
+        $query->bindParam('password', $password);
+        $query->bindParam('email', $email);
+        $query->bindParam('salt', $salt);
 
-        if (isset($data['username']) && $data['username'] != '') {
-
-        }
+        $query->execute();
     }
 
     public function checkPermissions()
     {
 
+    }
+
+    /**
+     * @param string $email
+     * @param string $username
+     * @return bool
+     */
+    public function checkIfUserNotRegistered($email, $username)
+    {
+        $checkQuery = $this->db->prepare('SELECT * FROM users WHERE email = :email OR username = :username');
+        $checkQuery->bindParam('email', $email);
+        $checkQuery->bindParam('username', $username);
+
+        $checkQuery->execute();
+        $checkResults = $checkQuery->fetchAll();
+
+        if (count($checkResults) > 0) {
+            return false;
+        }
+
+        return true;
     }
 
     /**

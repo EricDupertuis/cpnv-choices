@@ -18,18 +18,7 @@ $db = new PDO(
 );
 
 // manage user
-$user = new User($db);
-
-if (
-    isset($_SESSION['user'])
-    && $_SESSION['user'] != ''
-    && isset($_SESSION['password'])
-    && $_SESSION['password'] != ''
-) {
-    $user->populate();
-} else {
-
-}
+$user = new Kingdom\User($db);
 
 // match routes with actions
 foreach ($config['routes'] as $route) {
