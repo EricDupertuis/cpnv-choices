@@ -2,38 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>Kingdom</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="vendor/script.js"></script>
+  <link href="public/style.css" rel="stylesheet">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  
 </head>
 <body>
-	<header>
-		<div class="container-logo">
-			<img src="https://builtbyleon.com/img/kingdom-mag/kingdom-mag_desk@2x_logo.jpg" alt="Logo - Kingdom" width="20%" height="20%">
-		</div>
-		<div class="navbar">
-			<ul class="nav">
-				<li>S'inscrire</li>
-				<li>Se connecter</li>
-			</ul>
-		</div>
-	</header>
-	<div class="container">
-		<h2>I wish to choose...</h2>
-		<div class="container-choice">
-			<div class="choiceBleu">
-				<p>Choice 1</p>
+	<div class="wrap">
+		<header class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<img id="logo" src="public/images/kingdom-logo.png" alt="Logo - Kingdom">
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<ul class="nav">
+						<li><a class="menu" href="connection.html">Se connecter</a></li>
+						<li><a class="menu" href="inscription.html">S'inscrire</a></li>
+						<span id="line-menu"></span>
+					</ul>
+				</div>
 			</div>
-			<div class="choiceRed">
-				<p>Choice 2</p>
-			</div>
-			<div class="orChoice">
-				<p>ou</p>
+		</header>
+		<div class="container-fluid">
+			<div class="main">
+				<p>Tu préfères...</p>
+				<div class="row">
+					<div class="col-xs-12 col-sm-6">
+						<div class="solution left">
+							<a href="#">Solution 1</a>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6">
+						<div class="solution right">
+							<a href="#">Solution 2</a>
+						</div>
+					</div>
+				</div>
+				<div class="or">
+					<p>OU</p>
+				</div>
 			</div>
 		</div>
+		<footer>
+			<p>© Kingdom - 2016</p>
+		</footer>
 	</div>
-	<footer>
-		<p>@Copyright 2016 Kingdom</p>
-	</footer>
 </body>
 </html>
