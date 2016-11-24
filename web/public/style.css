@@ -88,6 +88,41 @@ header {
 /*-----------------------------------------------------*/
 /*-----------------------------------------------------*/
 
+.souspage {
+	width : 100%;
+	background-color : white;
+	display : table;
+}
+
+hr{
+	border: none !important;
+}
+
+label {
+
+    margin: 15px 0px 0px 0px !important;
+	}
+
+.petitbouton {
+
+	max-width : 32.57%;
+	
+	}
+	
+
+.souspage-content{
+    vertical-align: middle;
+	margin : auto;
+	margin-top : 50px;
+	margin-bottom : 50px;
+	color : black;
+	max-width : 350px;
+}
+
+
+.souspage-content p{
+    color : black;
+}
 
 
 /*-----------------------------------------------------*/
@@ -196,6 +231,7 @@ input {
 	border: 1px solid #eeeeee;
 	padding: 10px;
 	margin: 5px 0 !important;
+	text-transform: uppercase;
 }
 
 input[type="submit"] {
