@@ -52,8 +52,8 @@ class User
             return false;
         }
 
-        if (password_verify($password, $user['password'])) {
-            $_SESSION['user'] = $user['username'];
+        if (password_verify($password, $user[0]['password'])) {
+            $_SESSION['username'] = $user[0]['username'];
             $_SESSION['logged'] = true;
 
             return true;
@@ -67,8 +67,7 @@ class User
      */
     public function register($username, $email, $passwd)
     {
-        $salt = uniqid(mt_rand(), true);
-        $password = password_hash($passwd, PASSWORD_DEFAULT);
+        $password = password_hash($passwd, PASSWORD_BCRYPT);
 
         $query = $this->db->prepare('
           INSERT INTO users (username, email, password) 

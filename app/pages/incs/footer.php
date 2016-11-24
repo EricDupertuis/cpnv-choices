@@ -3,9 +3,9 @@
                 <p>
                     <?php
                         if ($_SESSION['logged']) {
-                            echo 'logged as' . $_SESSION['username'];
+                            echo 'logged as ' . $_SESSION['username'];
                         } else {
-                            echo 'not logged';
+                            echo 'not logged in';
                         }
                     ?>
                 </p>

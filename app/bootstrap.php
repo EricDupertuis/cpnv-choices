@@ -7,6 +7,9 @@ $config['app'] = require_once('config/app.php');
 $config['routes'] = require_once('config/routing.php');
 $config['db'] = require_once('config/database.php');
 include_once '../app/classes/User.php';
+include_once '../app/classes/App.php';
+
+$app = new \Kingdom\App();
 
 session_start();
 

@@ -9,6 +9,10 @@ return [
         'prefix' => '/login',
         'action' => 'login'
     ],
+    'logout' => [
+        'prefix' => '/logout',
+        'action' => 'logout'
+    ],
     'register' => [
         'prefix' => '/register',
         'action' => 'register'
