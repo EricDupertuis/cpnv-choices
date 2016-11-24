@@ -21,12 +21,14 @@ $db = new PDO(
 );
 
 // manage user
+$app = new \Kingdom\App($config);
 $user = new Kingdom\User($db);
 
 // match routes with actions and create app object
 foreach ($config['routes'] as $route) {
     if ($_SERVER['REQUEST_URI'] === $route['prefix']) {
-        $app = new \Kingdom\App($config, $route['action'], $route['prefix']);
+        $app->setRoute($route['prefix']);
+        $app->setAction($route['action']);
         include_once('actions/' . $app->getAction() . '.php');
     }
 }

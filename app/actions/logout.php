@@ -2,4 +2,4 @@
 
 session_destroy();
 
-redirect('');
+$app->redirect('');

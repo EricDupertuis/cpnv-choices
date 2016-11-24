@@ -11,11 +11,9 @@ class App
 
     private $config;
 
-    public function __construct($config, $action, $route)
+    public function __construct($config)
     {
         $this->config = $config;
-        $this->action = $action;
-        $this->route = $route;
     }
 
     public function render()
