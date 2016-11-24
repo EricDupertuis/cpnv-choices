@@ -7,6 +7,9 @@ $config['app'] = require_once('config/app.php');
 $config['routes'] = require_once('config/routing.php');
 $config['db'] = require_once('config/database.php');
 
+$incFolder = __DIR__ . 'pages/incs';
+
+var_dump($incFolder);
 // includes main class
 include_once '../app/classes/User.php';
 include_once '../app/classes/App.php';
@@ -29,6 +32,7 @@ foreach ($config['routes'] as $route) {
     if ($_SERVER['REQUEST_URI'] === $route['prefix']) {
         $app->setRoute($route['prefix']);
         $app->setAction($route['action']);
+
         include_once('actions/' . $app->getAction() . '.php');
     }
 }

@@ -2,7 +2,7 @@
                 <p>© Kingdom - 2016</p>
                 <p>
                     <?php
-                        if ($_SESSION['logged']) {
+                        if (isset($_SESSION['logged'])) {
                             echo 'logged as ' . $_SESSION['username'];
                         } else {
                             echo 'not logged in';

@@ -12,4 +12,4 @@ if (isset($_POST['username']) && $_POST['password'] != '') {
     }
 }
 
-$app->render('login');
+$app->render();
