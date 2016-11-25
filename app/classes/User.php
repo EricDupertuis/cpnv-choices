@@ -7,10 +7,6 @@ namespace Kingdom;
  */
 class User
 {
-    const ROLE_ADMIN = 'ROLE_ADMIN';
-
-    const ROLE_USER = 'ROLE_USER';
-
     private $username;
 
     private $email;
@@ -53,6 +49,7 @@ class User
         }
 
         if (password_verify($password, $user[0]['password'])) {
+            $_SESSION['id'] = $user[0]['id'];
             $_SESSION['username'] = $user[0]['username'];
             $_SESSION['logged'] = true;
 
@@ -79,8 +76,7 @@ class User
         $query->bindParam('email', $email);
 
         if ($query->execute()) {
-            $_SESSION['username'] = $username;
-            $_SESSION['logged'] = true;
+            $this->connect($username, $password);
 
             return true;
         } else {
@@ -121,6 +117,19 @@ class User
         }
 
         return true;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getId()
+    {
+        if (isset($_SESSION['id'])) {
+            return $_SESSION['id'];
+        }
+
+
+        return false;
     }
 
     /**

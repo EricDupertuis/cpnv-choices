@@ -7,9 +7,6 @@ $config['app'] = require_once('config/app.php');
 $config['routes'] = require_once('config/routing.php');
 $config['db'] = require_once('config/database.php');
 
-$incFolder = __DIR__ . 'pages/incs';
-
-var_dump($incFolder);
 // includes main class
 include_once '../app/classes/User.php';
 include_once '../app/classes/App.php';

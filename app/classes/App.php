@@ -11,6 +11,11 @@ class App
 
     private $config;
 
+    public function getIncFolder()
+    {
+        return __DIR__ . 'pages/incs';
+    }
+
     public function __construct($config)
     {
         $this->config = $config;
@@ -18,7 +23,7 @@ class App
 
     public function render()
     {
-        require_once $this->config['app']['app_dir'].'pages/'.$this->action.'.php';
+        include_once $this->config['app']['app_dir'].'pages/'.$this->action.'.php';
     }
 
     public function redirect($route) {

@@ -18,7 +18,7 @@ return [
         'action' => 'register'
     ],
     'adminAddQuestion' => [
-        'prefix' => '/admin/addQuestion',
-        'action' => 'admin/addQuestion'
+        'prefix' => '/addQuestion',
+        'action' => 'addQuestion'
     ]
 ];
