@@ -6,6 +6,12 @@
     <title>Kingdom</title>
     <link href="/public/style.css" rel="stylesheet">
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <script
+        src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+    <script src="/public/js/script.js" type="text/javascript"></script>
 </head>
 <body>
     <div class="wrap">
