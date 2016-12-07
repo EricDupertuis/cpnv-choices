@@ -17,6 +17,8 @@ class User
 
     private $salt;
 
+    private $isAdmin;
+
     /**
      * @var \PDO $db
      */
@@ -53,6 +55,11 @@ class User
             $_SESSION['username'] = $user[0]['username'];
             $_SESSION['logged'] = true;
 
+
+            if ($user[0]['isAdmin'] == 1) {
+                $_SESSION['isAdmin'] = true;
+            }
+
             return true;
         } else {
             return false;
@@ -84,6 +91,9 @@ class User
         }
     }
 
+    /**
+     * @return bool
+     */
     public function isLogged()
     {
         if (isset($_SESSION['logged']) && $_SESSION['logged'] == true) {
@@ -93,9 +103,16 @@ class User
         return false;
     }
 
-    public function checkPermissions()
+    /**
+     * @return bool
+     */
+    public function isAdmin()
     {
+        if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == true) {
+            return true;
+        }
 
+        return false;
     }
 
     /**

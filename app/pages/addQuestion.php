@@ -6,7 +6,7 @@
                 <input type="text" id="question2" name="question1">
 
                 <label for="question2">Question 2</label>
-                <input type="text" id="question2" name="question1">
+                <input type="text" id="question2" name="question2">
 
                 <input type="submit" value="submit">
             </form>

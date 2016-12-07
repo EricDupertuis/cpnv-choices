@@ -17,8 +17,16 @@ return [
         'prefix' => '/register',
         'action' => 'register'
     ],
+    'answerQuestion' => [
+        'prefix' => '/answer',
+        'action' => 'answerQuestion'
+    ],
     'adminAddQuestion' => [
         'prefix' => '/addQuestion',
         'action' => 'addQuestion'
+    ],
+    'adminSubmittedQuestion' => [
+        'prefix' => 'submittedQuestions',
+        'action' => 'submittedQuestions'
     ]
 ];
