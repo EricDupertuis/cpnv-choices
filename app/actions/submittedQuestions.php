@@ -10,4 +10,4 @@ $query->execute();
 
 $results = $query->fetchAll();
 
-$app->render();
+$app->render($app);

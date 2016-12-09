@@ -13,4 +13,4 @@ if (
     }
 }
 
-require_once $config['app']['app_dir'].'pages/register.php';
+include_once $app->getConfig()['app']['app_dir'].'pages/'.$app->getAction().'.php';

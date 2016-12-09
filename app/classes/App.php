@@ -11,6 +11,8 @@ class App
 
     private $config;
 
+    private $flash = [];
+
     public function getIncFolder()
     {
         return __DIR__ . 'pages/incs';
@@ -21,9 +23,23 @@ class App
         $this->config = $config;
     }
 
-    public function render()
+    public function render($app)
     {
+        $app = $app;
+
+        include_once $this->config['app']['app_dir'].'pages/incs/head.php';
         include_once $this->config['app']['app_dir'].'pages/'.$this->action.'.php';
+        include_once $this->config['app']['app_dir'].'pages/incs/footer.php';
+    }
+
+    public function addFlash($type, $message)
+    {
+        $this->flash = ['type' => $type, 'message' => $message];
+    }
+
+    public function getFlash()
+    {
+        return $this->flash;
     }
 
     public function redirect($route) {

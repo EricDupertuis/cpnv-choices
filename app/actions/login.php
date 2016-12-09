@@ -12,4 +12,4 @@ if (isset($_POST['username']) && $_POST['password'] != '') {
     }
 }
 
-$app->render();
+include_once $app->getConfig()['app']['app_dir'].'pages/'.$app->getAction().'.php';
