@@ -6,22 +6,27 @@ if (!$user->isLogged()) {
 
 if (isset($_POST['q1']) || isset($_POST['q2'])) {
     $query = $db->prepare('
-      INSERT INTO users_answers (questions_sets_id, answer, users_id)
+      INSERT INTO users_answers
       VALUES (:qs, :a, :u);
     ');
 
     $query->bindParam(':qs', intval($_POST['qid']), PDO::PARAM_INT);
+
+    $query->bindParam(':qs', intval($_POST['qid']), PDO::PARAM_INT);
+
     if (isset($_POST['q1'])) {
-        $query->bindParam(':qs', intval($_POST['q1']), PDO::PARAM_INT);
+        $query->bindParam(':a', intval('1'), PDO::PARAM_INT);
     } elseif (isset($_POST['q2'])) {
-        $query->bindParam(':qs', intval($_POST['q2']), PDO::PARAM_INT);
+        $query->bindParam(':a', intval('2'), PDO::PARAM_INT);
     } else {
         $app->addFlash('warning', 'Erreur en soumettant le formulaire');
         $app->redirect('');
     }
     $query->bindParam(':u', intval($_SESSION['id']), PDO::PARAM_INT);
 
-    if (!$query->execute()) {
+    if ($query->execute()) {
+        $app->redirect('');
+    } else {
         $app->addFlash('warning', 'Erreur en soumettant le formulaire');
         $app->redirect('');
     }
@@ -51,12 +56,23 @@ foreach ($ids as $index => $item) {
     }
 }
 
-$query = $db->prepare('SELECT * FROM questions_sets WHERE id NOT IN ('.$exclude.');');
+if (empty($exclude)) {
+    $query = $db->prepare('SELECT * FROM questions_sets LIMIT 1;');
+} else {
+    $query = $db->prepare('SELECT * FROM questions_sets WHERE id NOT IN ('.$exclude.') LIMIT 1;');
+}
+
 $query->execute();
 
-$question = $query->fetchAll()[0];
+$questionArray = $query->fetchAll();
 
-if (!$question) {
+if ($questionArray != null) {
+    $question = $questionArray[0];
+} else {
+    $question = null;
+}
+
+if ($question == null) {
     $app->addFlash('warning', 'Plus de questions disponibles');
 }
 
