@@ -26,7 +26,9 @@
                         <?php else: ?>
                             <li><a class="menu" href="/login">Se connecter</a></li>
                         <?php endif; ?>
+                        <?php if (!$_SESSION['logged']) : ?>
                         <li><a class="menu" href="/register">S'inscrire</a></li>
+                        <?php endif; ?>
                         <span id="line-menu"></span>
                     </ul>
                 </div>
