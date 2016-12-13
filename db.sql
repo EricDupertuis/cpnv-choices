@@ -40,6 +40,7 @@ CREATE TABLE IF NOT EXISTS `kingdom`.`questions_sets` (
   `answer_one` VARCHAR(255) NOT NULL,
   `answer_two` VARCHAR(255) NOT NULL,
   `users_id` INT NOT NULL,
+  'valid' TINYINT(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   INDEX `fk_questions_sets_users1_idx` (`users_id` ASC),
   CONSTRAINT `fk_questions_sets_users1`
