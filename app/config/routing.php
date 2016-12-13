@@ -26,7 +26,7 @@ return [
         'action' => 'addQuestion'
     ],
     'adminSubmittedQuestion' => [
-        'prefix' => 'submittedQuestions',
+        'prefix' => '/submittedQuestions',
         'action' => 'submittedQuestions'
     ]
 ];
