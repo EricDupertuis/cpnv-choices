@@ -34,7 +34,6 @@ if (isset($_POST['q1']) || isset($_POST['q2'])) {
     }
 }
 
-
 $exclude = '';
 
 $query = $db->prepare('
