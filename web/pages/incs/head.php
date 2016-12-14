@@ -22,12 +22,12 @@
                 <div class="col-xs-12 col-sm-6">
                     <ul class="nav">
                         <?php if ($_SESSION['logged']) : ?>
-                            <li><a class="menu" href="/logout">Se déconnecter</a></li>
+                            <li><a class="menu" href="../../index.php">Se déconnecter</a></li>
                         <?php else: ?>
-                            <li><a class="menu" href="/login">Se connecter</a></li>
+                            <li><a class="menu" href="../../index.php">Se connecter</a></li>
                         <?php endif; ?>
                         <?php if (!$_SESSION['logged']) : ?>
-                        <li><a class="menu" href="/register">S'inscrire</a></li>
+                        <li><a class="menu" href="../../index.php">S'inscrire</a></li>
                         <?php endif; ?>
                         <span id="line-menu"></span>
                     </ul>

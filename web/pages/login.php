@@ -1,4 +1,4 @@
-<?php include_once 'incs/head.php'?>
+<?php include_once 'incs/head.php' ?>
 <div class="container">
     <form method="post" action="<?php echo $_SERVER['REQUEST_URI'] ?>">
         <label for="username">Username</label>
