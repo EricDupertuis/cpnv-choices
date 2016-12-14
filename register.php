@@ -1,5 +1,7 @@
 <?php
 
+include_once 'bootstrap.php';
+
 if (
     isset($_POST['password']) && $_POST['password'] !== ''
     && isset($_POST['username']) && $_POST['username'] !== ''
@@ -13,4 +15,4 @@ if (
     }
 }
 
-include_once $app->getConfig()['app']['app_dir'].'pages/'.$app->getAction().'.php';
+include_once $app->getConfig()['app']['app_dir'].'pages/register.php';

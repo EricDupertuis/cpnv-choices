@@ -5,9 +5,6 @@ namespace Kingdom;
 
 class App
 {
-    private $route;
-
-    private $action;
 
     private $config;
 
@@ -25,10 +22,7 @@ class App
 
     public function render($app)
     {
-        $app = $app;
-
         include_once $this->config['app']['app_dir'].'pages/incs/head.php';
-        include_once $this->config['app']['app_dir'].'pages/'.$this->action.'.php';
         include_once $this->config['app']['app_dir'].'pages/incs/footer.php';
     }
 
@@ -45,38 +39,6 @@ class App
     public function redirect($route) {
         header('Location: /'.$route);
         die();
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getRoute()
-    {
-        return $this->route;
-    }
-
-    /**
-     * @param mixed $route
-     */
-    public function setRoute($route)
-    {
-        $this->route = $route;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
-
-    /**
-     * @param mixed $action
-     */
-    public function setAction($action)
-    {
-        $this->action = $action;
     }
 
     /**

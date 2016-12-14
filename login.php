@@ -1,5 +1,7 @@
 <?php
 
+include_once 'bootstrap.php';
+
 if ($user->isLogged()) {
     $app->redirect('');
 }
@@ -12,4 +14,4 @@ if (isset($_POST['username']) && $_POST['password'] != '') {
     }
 }
 
-include_once $app->getConfig()['app']['app_dir'].'pages/'.$app->getAction().'.php';
+include_once $app->getConfig()['app']['app_dir'].'pages/login.php';

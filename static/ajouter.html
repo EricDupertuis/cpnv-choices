@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>Kingdom</title>
-  <link href="public/style.css" rel="stylesheet">
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../public/style.css" rel="stylesheet">
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   
 </head>
 <body>
@@ -13,11 +13,11 @@
 		<header class="container-fluid">
 			<div class="row">
 				<div class="col-xs-12 col-sm-6">
-					<img id="logo" src="public/images/kingdom-logo.png" alt="Logo - Kingdom">
+					<img id="logo" src="../public/images/kingdom-logo.png" alt="Logo - Kingdom">
 				</div>
 				<div class="col-xs-12 col-sm-6">
 					<ul class="nav">
-						<li><a class="menu" href="connection.html">Se connecter</a></li>
+						<li><a class="menu" href="../index.php">Se connecter</a></li>
 						<li><a class="menu" href="inscription.html">S'inscrire</a></li>
 						<span id="line-menu"></span>
 					</ul>
@@ -26,14 +26,14 @@
 		</header>
 		<div class="souspage">
 			<div class="souspage-content">
-				<h2>Mon compte</h2>
+				<h2>Ajouter un choix</h2>
 				<form>
-					<label> Pseudo : </label><br>
-					<input type="text" name="pseudo" /><br>
-					<label> Email : </label><br>
-					<input type="text" name="mail"><br>
-					<label> Mot de passe : </label><br>
-					<input type="text" name="password" />
+					<label> Choix 1 : </label><br>
+					<input type="text" name="choix1" /><br>
+					<label> Choix 2 : </label><br>
+					<input type="text" name="choix2">
+					<hr>
+					<input type="submit" name="confirm_chooses" value="Confirmer">
 				</form>
 			</div>
 		</div>

@@ -1,5 +1,7 @@
 <?php
 
+include_once 'bootstrap.php';
+
 if (!$user->isAdmin()) {
     $app->redirect('');
 }
@@ -25,4 +27,4 @@ if (isset($_POST['question1']) && isset($_POST['question2'])) {
     }
 }
 
-include_once $app->getConfig()['app']['app_dir'].'pages/'.$app->getAction().'.php';
+include_once $app->getConfig()['app']['app_dir'].'pages/addQuestion.php';

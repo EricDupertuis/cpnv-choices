@@ -1,7 +1,9 @@
 <?php
 
+include_once 'bootstrap.php';
+
 if (!$user->isLogged()) {
-    $app->redirect('login');
+    $app->redirect('login.php');
 };
 
 if (isset($_POST['q1']) || isset($_POST['q2'])) {
@@ -76,4 +78,4 @@ if ($question == null) {
     $app->addFlash('warning', 'Plus de questions disponibles');
 }
 
-include_once $app->getConfig()['app']['app_dir'].'pages/'.$app->getAction().'.php';
+include_once $app->getConfig()['app']['app_dir'].'pages/index.php';

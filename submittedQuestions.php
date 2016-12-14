@@ -1,5 +1,7 @@
 <?php
 
+include_once 'bootstrap.php';
+
 if (!$user->isAdmin()) {
     $app->redirect('');
 }
@@ -10,4 +12,4 @@ $query->execute();
 
 $results = $query->fetchAll();
 
-include_once $app->getConfig()['app']['app_dir'].'pages/'.$app->getAction().'.php';
+include_once $app->getConfig()['app']['app_dir'].'pages/submittedQuestions.php';
