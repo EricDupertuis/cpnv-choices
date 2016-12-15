@@ -10,6 +10,16 @@
                         }
                     ?>
                 </p>
+                <?php if ($user->isAdmin()): ?>
+                    <ul>
+                        <li>
+                            <a href="/export.php">Exporter les questions</a>
+                        </li>
+                        <li>
+                            <a href="/submittedQuestions.php">Valider les questions</a>
+                        </li>
+                    </ul>
+                <?php endif; ?>
             </footer>
         </div>
         <script src="/public/js/script.js"></script>

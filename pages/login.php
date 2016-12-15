@@ -1,5 +1,5 @@
 <?php include_once 'incs/head.php' ?>
-    <div class="container">
+    <div class="container-fluid">
         <div class="souspage">
             <form method="post" action="<?php echo $_SERVER['REQUEST_URI'] ?>">
                 <label for="username">Username</label>
