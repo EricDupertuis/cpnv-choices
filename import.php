@@ -17,21 +17,21 @@ if (isset($_FILES)) {
         // https://secure.php.net/manual/en/function.fgetcsv.php
         if (($handle = fopen($_FILES['uploadedCsv']['tmp_name'], "r")) !== false) {
 
-            $data = fgetcsv($handle, 1000, ",");
-
-            foreach ($data as $line) {
+            while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
                 $query = $db->prepare('
                     INSERT INTO questions_sets (answer_one, answer_two, users_id, valid) 
                     VALUES (:qone, :qtwo, :id, :valid);
                 ');
-                $one = $line[0];
-                $two = $line[1];
+                $one = $data[0];
+                $two = $data[1];
                 $query->bindParam('qone', $one, PDO::PARAM_STR);
                 $query->bindParam('qtwo', $two, PDO::PARAM_STR);
                 $query->bindParam('id', intval($_SESSION['id']), PDO::PARAM_INT);
                 $query->bindParam('valid', intval(1), PDO::PARAM_INT);
 
                 $query->execute();
+
+                $row++;
             }
 
             fclose($handle);
