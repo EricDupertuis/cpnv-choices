@@ -13,7 +13,7 @@
                             <td><?php echo $result['answer_one'] ?></td>
                             <td><?php echo $result['answer_two'] ?></td>
                             <td><a href="<?php echo $_SERVER['REQUEST_URI'] . '?validateId=' . $result['id']; ?>">Valider</a></td>
-                        </tr>
+                t        </tr>
                     <?php endforeach; ?>
                 </table>
             </div>

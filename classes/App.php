@@ -10,11 +10,6 @@ class App
 
     private $flash = [];
 
-    public function getIncFolder()
-    {
-        return __DIR__ . 'pages/incs';
-    }
-
     public function __construct($config)
     {
         $this->config = $config;

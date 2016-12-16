@@ -33,7 +33,6 @@ if (isset($_POST['q1']) || isset($_POST['q2'])) {
         $app->redirect('');
     }
 
-    var_dump($query);
     die();
 }
 $exclude = '';

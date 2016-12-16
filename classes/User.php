@@ -11,11 +11,7 @@ class User
 
     private $email;
 
-    private $permissions = [];
-
     private $password;
-
-    private $salt;
 
     private $isAdmin;
 
@@ -152,22 +148,6 @@ class User
     /**
      * @return mixed
      */
-    public function getPermissions()
-    {
-        return $this->permissions;
-    }
-
-    /**
-     * @param mixed $permissions
-     */
-    public function setPermissions($permissions)
-    {
-        $this->permissions = $permissions;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getPassword()
     {
         return $this->password;
@@ -179,14 +159,6 @@ class User
     public function setPassword($password)
     {
         $this->password = password_hash($password, PASSWORD_DEFAULT);
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSalt()
-    {
-        return $this->salt;
     }
 
     /**
