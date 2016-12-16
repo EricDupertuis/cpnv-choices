@@ -32,21 +32,24 @@ if (isset($_POST['q1']) || isset($_POST['q2'])) {
         $app->addFlash('warning', 'Erreur en soumettant le formulaire');
         $app->redirect('');
     }
-}
 
+    var_dump($query);
+    die();
+}
 $exclude = '';
 
 $query = $db->prepare('
   SELECT qs.id FROM questions_sets AS qs
     INNER JOIN users_answers AS ua
     ON ua.questions_sets_id = qs.id
-    WHERE qs.users_id = :id
+    WHERE ua.user_id = :id
 ;
 ');
 
-$query->bindParam(':id', $_SESSION['id'], PDO::PARAM_INT);
+$query->bindParam(':id', intval($_SESSION['id']), PDO::PARAM_INT);
 
 $query->execute();
+
 $ids = $query->fetchAll(PDO::FETCH_ASSOC);
 
 foreach ($ids as $index => $item) {

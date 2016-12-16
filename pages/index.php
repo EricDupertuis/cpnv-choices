@@ -6,12 +6,12 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-6">
                     <div class="solution left" id="q1">
-                        <input name="q1" type="radio" href="#" value="1"> <?php echo $question['answer_two']; ?>
+                        <input name="q1" type="submit" href="#" value="1"> <?php echo $question['answer_two']; ?>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6">
                     <div class="solution right" id="q2">
-                        <input name="q2" type="radio" href="#" value="1"> <?php echo $question['answer_two']; ?>
+                        <input name="q2" type="submit" href="#" value="1"> <?php echo $question['answer_two']; ?>
                     </div>
                 </div>
             </div>
