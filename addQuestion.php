@@ -2,7 +2,7 @@
 
 include_once 'bootstrap.php';
 
-if (!$user->isAdmin()) {
+if (!$user->isLogged()) {
     $app->redirect('');
 }
 
@@ -12,7 +12,7 @@ if (isset($_POST['question1']) && isset($_POST['question2'])) {
     $query->bindParam('qtwo', $_POST['question2'], PDO::PARAM_STR);
     $query->bindParam('id', intval($_SESSION['id']), PDO::PARAM_INT);
 
-    if ($_SESSION['isAdmin'] == true) {
+    if ($user->isAdmin() == true) {
         $valid = 1;
     } else {
         $valid = 0;
