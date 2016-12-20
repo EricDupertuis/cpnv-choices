@@ -1,3 +1,4 @@
-#GGJ16 Project
+#Kingddom
 
-projet 
+Projet web pour le cours d'informatique
+
