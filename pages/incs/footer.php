@@ -13,10 +13,13 @@
                 <?php if ($user->isAdmin()): ?>
                     <ul>
                         <li>
-                            <a href="/export.php">Exporter les questions</a>
+                            <a class="menu" href="/export.php">Exporter les questions</a>
                         </li>
                         <li>
-                            <a href="/submittedQuestions.php">Valider les questions</a>
+                            <a class="menu" href="/submittedQuestions.php">Valider les questions</a>
+                        </li>
+                        <li>
+                            <a class="menu" href="/import.php">Importer des questions</a>
                         </li>
                     </ul>
                 <?php endif; ?>

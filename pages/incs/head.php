@@ -30,7 +30,6 @@
                         <li><a class="menu" href="/register.php">S'inscrire</a></li>
                         <?php endif; ?>
                         <li><a class="menu" href="/addQuestion.php">Proposer une question</a></li>
-                        <span id="line-menu"></span>
                     </ul>
                 </div>
             </div>

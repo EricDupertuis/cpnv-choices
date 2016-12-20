@@ -15,7 +15,6 @@ if (isset($_POST['export']) && $_POST['export'] == 'ok') {
     fputcsv($output, array('question1','question2'));
 
     foreach ($qs as $q) {
-        var_dump($q);
         $return = [$q['answer_one'], $q['answer_two']];
         fputcsv($output, $return);
     }
