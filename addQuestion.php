@@ -25,8 +25,6 @@ if (isset($_POST['question1']) && !empty($_POST['question1']) && isset($_POST['q
     } else {
         $app->addFlash('warning', 'Erreur lors de l\' ajout d\'une question');
     }
-} else {
-    $app->addFlash('warning', 'Formulaire non valide');
 }
 
 include_once $app->getConfig()['app']['app_dir'].'pages/addQuestion.php';
