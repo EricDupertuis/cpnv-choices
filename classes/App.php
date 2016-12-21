@@ -1,8 +1,5 @@
 <?php
 
-namespace Kingdom;
-
-
 class App
 {
 

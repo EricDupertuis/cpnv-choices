@@ -6,6 +6,7 @@ if (!$user->isLogged()) {
     $app->redirect('login.php');
 };
 
+// on vérifie qu'on ait répondu à une des questions
 if (isset($_POST['q1']) || isset($_POST['q2'])) {
     $query = $db->prepare('
       INSERT INTO users_answers
@@ -21,6 +22,7 @@ if (isset($_POST['q1']) || isset($_POST['q2'])) {
     } elseif (isset($_POST['q2'])) {
         $query->bindParam(':a', intval('2'), PDO::PARAM_INT);
     } else {
+        // erreur a ce niveau, on met un message flash
         $app->addFlash('warning', 'Erreur en soumettant le formulaire');
         $app->redirect('');
     }
@@ -37,6 +39,8 @@ if (isset($_POST['q1']) || isset($_POST['q2'])) {
 }
 $exclude = '';
 
+// on crée un query pour aller chercher une question dans la base
+// On prend toutes les questions auxquelles l'utilisateur à déjà répondu
 $query = $db->prepare('
   SELECT qs.id FROM questions_sets AS qs
     INNER JOIN users_answers AS ua
@@ -51,6 +55,7 @@ $query->execute();
 
 $ids = $query->fetchAll(PDO::FETCH_ASSOC);
 
+// on crée un chaîne ce caractère avec les IDs des questions déjà répondues
 foreach ($ids as $index => $item) {
     if (count($ids) == $index + 1) {
         $exclude .= $item['id'];
@@ -59,6 +64,7 @@ foreach ($ids as $index => $item) {
     }
 }
 
+// ON prend une des questions non répondue en enlevant les IDs, ou on prend la première qui vient
 if (empty($exclude)) {
     $query = $db->prepare('SELECT * FROM questions_sets LIMIT 1;');
 } else {
