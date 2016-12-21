@@ -3,8 +3,10 @@
 Projet web pour le cours d'informatique.
 
 Le MCL et MLD se situent dans `doc/db`
-L'ar
-
+L'arborescence se situe dans `doc/arborescence`
+Le logo se situe dans `doc/logo`
+les mockups se situent dans `doc/mockups`
+les user stories se situent dans `doc/user_stories`
 
 ##Architecture du code
 
