@@ -6,6 +6,7 @@ if ($user->isLogged()) {
     $app->redirect('');
 }
 
+// On vérifie que l'utilisateur est connecté sinon on redirige
 if (isset($_POST['username']) && $_POST['password'] != '') {
     $result = $user->connect($_POST['username'], $_POST['password']);
 

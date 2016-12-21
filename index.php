@@ -66,9 +66,9 @@ foreach ($ids as $index => $item) {
 
 // ON prend une des questions non répondue en enlevant les IDs, ou on prend la première qui vient
 if (empty($exclude)) {
-    $query = $db->prepare('SELECT * FROM questions_sets LIMIT 1;');
+    $query = $db->prepare('SELECT * FROM questions_sets WHERE valid=1 LIMIT 1;');
 } else {
-    $query = $db->prepare('SELECT * FROM questions_sets WHERE id NOT IN ('.$exclude.') LIMIT 1;');
+    $query = $db->prepare('SELECT * FROM questions_sets WHERE id NOT IN ('.$exclude.') AND valid=1 LIMIT 1;');
 }
 
 $query->execute();

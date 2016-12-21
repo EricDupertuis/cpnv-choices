@@ -2,6 +2,7 @@
 
 include "bootstrap.php";
 
+// droits d'accès
 if (!$user->isLogged()) {
     $app->redirect('/login.php');
 }

@@ -6,6 +6,7 @@ if (!$user->isAdmin()) {
     $app->redirect('');
 }
 
+// on check le paramètre GET
 if (isset($_GET['validateId'])) {
     $query = $db->prepare('UPDATE questions_sets SET valid=1 WHERE id=:id;');
     $query->bindParam(':id', intval($_GET['validateId']));
@@ -14,6 +15,7 @@ if (isset($_GET['validateId'])) {
     $app->redirect('submittedQuestions.php');
 }
 
+// On prend les questions non validée
 $query = $db->prepare('SELECT * FROM questions_sets WHERE valid=0;');
 
 $query->execute();
