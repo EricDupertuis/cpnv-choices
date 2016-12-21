@@ -2,7 +2,7 @@
 
 Projet web pour le cours d'informatique.
 
-Le MCL et MLD se situe dans `doc/db`
+Le MCL et MLD se situent dans `doc/db`
 
 ##Architecture du code
 
@@ -12,5 +12,5 @@ Le MCL et MLD se situe dans `doc/db`
 - La config dans `./config`
 - Les classes dans `./classes`
 - Les fichiers js + css + images dans `./public`
--
-
+- Les vendors (bootstrap + jquery) dans `./vendor`
+- Les fichiers statiques (maquettes) dans `./static`
