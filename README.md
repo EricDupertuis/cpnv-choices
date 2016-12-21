@@ -3,6 +3,7 @@
 Projet web pour le cours d'informatique.
 
 Le MCL et MLD se situent dans `doc/db`
+L'ar
 
 
 ##Architecture du code
