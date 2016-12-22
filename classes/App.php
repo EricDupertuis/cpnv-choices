@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Class App
+ * @author Eric Dupertuis
+ * @author Maxime Barras
+ * @author Michel Cruz
+ * @date 04.11.2016
+ */
 class App
 {
 

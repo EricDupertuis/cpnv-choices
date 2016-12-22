@@ -1,4 +1,10 @@
 <?php
+/**
+* @author Eric Dupertuis
+* @author Maxime Barras
+* @author Michel Cruz
+* @date 25.11.2016
+*/
 
 include_once 'bootstrap.php';
 
